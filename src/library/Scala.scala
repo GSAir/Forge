@@ -361,6 +361,7 @@ trait ScalaOps extends PrimitiveMathGen {
     val contains = infix (Str) ("contains", Nil, (MString,MString) :: MBoolean)
     val substring1 = infix (Str) ("substring", Nil, (MString,MInt) :: MString)
     val substring2 = infix (Str) ("substring", Nil, (MString,MInt,MInt) :: MString)
+    val indexOf = infix (Str) ("indexOf", Nil, (MString,MString,MInt) :: MInt)
     val toLowerCase = infix (Str) ("toLowerCase", Nil, MString :: MString)
     val toUpperCase = infix (Str) ("toUpperCase", Nil, MString :: MString)
     val getBytes = infix (Str) ("getBytes", Nil, MString :: MArray(MByte))
@@ -379,6 +380,7 @@ trait ScalaOps extends PrimitiveMathGen {
     impl (contains) (codegen($cala, ${ $0.contains($1) }))
     impl (substring1) (codegen($cala, ${ $0.substring($1) }))
     impl (substring2) (codegen($cala, ${ $0.substring($1,$2) }))
+    impl (indexOf) (codegen($cala, ${ $0.indexOf($1,$2) }))
     impl (toLowerCase) (codegen($cala, ${ $0.toLowerCase }))
     impl (toUpperCase) (codegen($cala, ${ $0.toUpperCase }))
     impl (getBytes) (codegen($cala, ${ $0.getBytes() }))
@@ -397,6 +399,7 @@ trait ScalaOps extends PrimitiveMathGen {
     impl (contains) (codegen(cpp, ${ string_contains($0,$1) }))
     impl (substring1) (codegen(cpp, ${ string_substr($0,$1) }))
     impl (substring2) (codegen(cpp, ${ string_substr($0,$1,$2) }))
+    impl (indexOf) (codegen(cpp, ${ string_indexOf($0,$1,$2) }))
 
     // We leave fsplit, though deprecated, here for compatibility
     infix (Str) ("fsplit", Nil, MethodSignature(List(MString,MString,("numSplits",MInt,"unit(0)")), MArray(MString))) implements redirect ${ $0.split($1, $2) }
