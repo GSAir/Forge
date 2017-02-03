@@ -2,13 +2,13 @@ package ppl.dsl.forge
 package dsls
 package optimql
 
-import optila.{OptiLADSL}
+import optiml.{OptiMLDSL}
 
 import core.{ForgeApplication,ForgeApplicationRunner}
 
 object OptiMQLDSLRunner extends ForgeApplicationRunner with OptiMQLDSL
 
-trait OptiMQLDSL extends OptiLADSL with TableMQLOps {
+trait OptiMQLDSL extends OptiMLDSL with TableMQLOps {
   /**
    * The name of your DSL. This is the name that will be used in generated files,
    * package declarations, etc.
@@ -127,5 +127,29 @@ if ($a.isInstanceOf[Double] || $a.isInstanceOf[Float]) numericStr($a) else ("" +
     importLinAlgOps()
     importShapeOps()
 
+    // OptiML types
+    val V = tpePar("V")
+    val W = tpePar("W")
+    val HashStream = tpe("HashStream", V)
+    val FileStream = tpe("FileStream")
+    val ComputeStream = tpe("ComputeStream", W)
+
+    OptiML ops
+    importSetOps()
+    importTrainingSetLikeOps()
+    importByteBuffer()
+    extern(grp("Sum"))
+    importBufferableOps()
+    importFeatureOps()
+    importFeatureHelperOps()
+    importUntilConverged()
+    importAllGraphOps()
+    importAllFactorGraphOps()
+    importMLIOOps()
+    importStreamOps()
+    importImageOps()
+    importTreeOps()
+    importClassifierOps()
+    importValidateOps()
   }
 }
