@@ -129,27 +129,27 @@ if ($a.isInstanceOf[Double] || $a.isInstanceOf[Float]) numericStr($a) else ("" +
 
     // OptiML types
     val V = tpePar("V")
-    val W = tpePar("W")
+    // val W = tpePar("W")
     val HashStream = tpe("HashStream", V)
     val FileStream = tpe("FileStream")
-    val ComputeStream = tpe("ComputeStream", W)
+    val ComputeStream = tpe("ComputeStream", T)
 
-    OptiML ops
+    // OptiML ops
     importSetOps()
     importTrainingSetLikeOps()
     importByteBuffer()
     extern(grp("Sum"))
     importBufferableOps()
-    importFeatureOps()
-    importFeatureHelperOps()
-    importUntilConverged()
-    importAllGraphOps()
-    importAllFactorGraphOps()
-    importMLIOOps()
-    importStreamOps()
-    importImageOps()
-    importTreeOps()
-    importClassifierOps()
-    importValidateOps()
+    // importFeatureOps()
+    // importFeatureHelperOps()
+    // importUntilConverged()
+    // importAllGraphOps()
+    // importAllFactorGraphOps()
+    // importMLIOOps()
+    // importStreamOps()
+    // importImageOps()
+    // importTreeOps()
+    // importClassifierOps()
+    // importValidateOps()
   }
 }
