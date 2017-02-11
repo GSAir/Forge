@@ -46,9 +46,9 @@ trait TableMQLOps {
 
     //(K,V) pairs for Tables
     val Tuple2 = lookupTpe("Tup2")
-    fimplicit (Tuple2) ("pair_to_value", (K,V), Tuple2(K,Table(V)) :: Table(V)) implements composite ${ tup2__2($0) } //TODO: this isn't kicking in
-    infix (Tuple2) ("key", (K,V), Tuple2(K,Table(V)) :: K) implements composite ${ tup2__1($0) }
-    infix (Tuple2) ("values", (K,V), Tuple2(K,Table(V)) :: Table(V)) implements composite ${ tup2__2($0) }
+    // fimplicit (Tuple2) ("pair_to_value", (K,V), Tuple2(K,Table(V)) :: Table(V)) implements composite ${ tup2__2($0) } //TODO: this isn't kicking in
+    // infix (Tuple2) ("key", (K,V), Tuple2(K,Table(V)) :: K) implements composite ${ tup2__1($0) }
+    // infix (Tuple2) ("values", (K,V), Tuple2(K,Table(V)) :: Table(V)) implements composite ${ tup2__2($0) }
 
 
     //sorting convenience method on Orderables

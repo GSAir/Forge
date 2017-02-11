@@ -142,14 +142,14 @@ if ($a.isInstanceOf[Double] || $a.isInstanceOf[Float]) numericStr($a) else ("" +
     importBufferableOps()
     // importFeatureOps()
     // importFeatureHelperOps()
-    // importUntilConverged()
+    importUntilConverged()
     // importAllGraphOps()
     // importAllFactorGraphOps()
     // importMLIOOps()
     // importStreamOps()
     // importImageOps()
-    // importTreeOps()
-    // importClassifierOps()
-    // importValidateOps()
+    importTreeOps()
+    importClassifierOps()
+    importValidateOps()
   }
 }
